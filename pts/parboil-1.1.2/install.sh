@@ -12,6 +12,10 @@ mv parboil parboil-2.5-tree/
 
 cd parboil-2.5-tree/
 touch common/Makefile.conf # TODO: add OpenCL/CUDA support here to use more benchmarks...
+for i in $(grep -lr '/usr/bin/env python' .);
+do
+    sed -i 's|/usr/bin/env python$|/usr/bin/env python2|p' $i
+done
 
 COMPILE_OPENCL=0
 
